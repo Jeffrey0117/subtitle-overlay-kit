@@ -1,0 +1,39 @@
+{
+  "name": "subtitle-overlay-kit",
+  "version": "0.1.0",
+  "description": "字幕疊加層的純邏輯 — 過長 cue 切成讀得完的片段、難字底線跟著片段走、框的錨邊/位移/寬度/四角等比縮放。零依賴、不碰 DOM，桌面(Electron)/使用者腳本/瀏覽器擴充共用同一顆。",
+  "main": "index.js",
+  "scripts": {
+    "example": "node example.js",
+    "test": "node --test test.mjs"
+  },
+  "keywords": [
+    "subtitle",
+    "caption",
+    "overlay",
+    "cue",
+    "chunking",
+    "bilingual",
+    "drag",
+    "resize",
+    "字幕",
+    "疊加",
+    "切片",
+    "headless",
+    "zero-dependency"
+  ],
+  "author": "Jeffrey0117",
+  "license": "MIT",
+  "files": [
+    "index.js",
+    "example.js",
+    "test.mjs",
+    "README.md",
+    "SKILL.md",
+    "kit-checks.json",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "kit": "subtitle-overlay-kit",
+  "checks": [
+    {
+      "id": "no-whole-cue-render",
+      "why": "整條 cue 直接畫上去，遇到轉錄吐出來的長段落就是畫面中央一片七行告示牌。縮小字級救不了，必須切片。",
+      "search": "activeCue\\.text|cue\\.text\\s*\\}\\}|\\{cue\\.text\\}",
+      "mustAlsoHave": "visibleCue|chunkText",
+      "severity": "high"
+    },
+    {
+      "id": "marks-remapped",
+      "why": "難字底線是對整句的字元位移；只顯示其中一片時沒有重新對位，底線就會畫在錯的字上。",
+      "search": "marks=\\{|marks:",
+      "mustAlsoHave": "marksForChunk",
+      "severity": "high"
+    },
+    {
+      "id": "offset-slider-not-hardcoded",
+      "why": "垂直位移的上限寫死（400 之類）跟畫面多高無關，桌面視窗會拉不到上緣。",
+      "search": "max=\"400\"|max=\\{400\\}|maxOffset\\s*=\\s*400",
+      "mustNotMatch": true,
+      "severity": "medium"
+    },
+    {
+      "id": "scale-ratio-clamped-once",
+      "why": "寬度與字級各自夾上限，會讓其中一個先撞頂、另一個繼續長，等比就不再等比，文字爬出自己的框。",
+      "search": "Math\\.min\\(MAX_WIDTH_PCT[\\s\\S]{0,200}Math\\.min\\(MAX_FONT",
+      "mustNotMatch": true,
+      "severity": "medium"
+    },
+    {
+      "id": "fixed-width-not-maxwidth",
+      "why": "widthPct 套成 maxWidth 時框仍會縮到貼合文字，拉寬度在短句上看起來沒反應。",
+      "search": "maxWidth:\\s*`\\$\\{[^}]*widthPct",
+      "mustNotMatch": true,
+      "severity": "low"
+    }
+  ]
+}
