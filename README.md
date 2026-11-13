@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="logo.svg" width="96" height="96" alt="subtitle-overlay-kit logo">
+</p>
+
 # subtitle-overlay-kit 🎬
 
 字幕**怎麼顯示在影片上**的純邏輯。零依賴、不碰 DOM、不認識播放器。
